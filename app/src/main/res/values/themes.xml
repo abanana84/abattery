@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.ABattery" parent="android:Theme.Material.NoActionBar">
+    <!-- AppCompat parent required so AppCompatDelegate per-app locales apply correctly -->
+    <style name="Theme.ABattery" parent="Theme.AppCompat.NoActionBar">
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:navigationBarDividerColor" tools:targetApi="28">@android:color/transparent</item>
