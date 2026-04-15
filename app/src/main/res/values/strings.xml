@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Battery Health &amp; Cycle Checker</string>
+    <string name="app_bar_title">Battery Health</string>
+    <string name="current_flow_title">Dòng điện</string>
+    <string name="current_flow_subtitle">Theo thời gian thực (~60 mẫu)</string>
+</resources>
