@@ -24,9 +24,14 @@ fun formatCameraMpList(megapixels: List<Float>): String =
         }
     }
 
-fun formatBatteryCycleCount(count: Int?, estimated: Boolean): String = when {
-    count == null -> "N/A"
-    estimated -> "~$count"
+fun formatBatteryCycleCount(
+    count: Int?,
+    estimated: Boolean,
+    na: String,
+    estimatedPattern: String,
+): String = when {
+    count == null -> na
+    estimated -> estimatedPattern.format(count)
     else -> count.toString()
 }
 

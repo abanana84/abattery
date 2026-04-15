@@ -16,19 +16,19 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.abanana.abattery.ui.theme.AppTheme
 import com.abanana.abattery.ui.theme.InterFont
-import com.abanana.abattery.ui.theme.OnSurface
-import com.abanana.abattery.ui.theme.OnSurfaceVar
-import com.abanana.abattery.ui.theme.OutlineVariant
 import com.abanana.abattery.ui.theme.SpaceGrotesk
 
 @Composable
 fun InfoRow(
     label: String,
     value: String,
-    valueColor: Color = OnSurface,
+    valueColor: Color? = null,
     valueMaxLines: Int = 1,
 ) {
+    val c = AppTheme.colors
+    val vc = valueColor ?: c.onSurface
     Column {
         Row(
             modifier = Modifier
@@ -40,14 +40,14 @@ fun InfoRow(
             Text(
                 label,
                 modifier = Modifier.padding(end = 8.dp),
-                color = OnSurfaceVar,
+                color = c.onSurfaceVar,
                 fontSize = 14.sp,
                 fontFamily = InterFont,
             )
             Text(
                 value,
                 modifier = Modifier.weight(1f, fill = false),
-                color = valueColor,
+                color = vc,
                 fontSize = 13.sp,
                 fontFamily = SpaceGrotesk,
                 fontWeight = FontWeight.Medium,
@@ -56,6 +56,6 @@ fun InfoRow(
                 overflow = TextOverflow.Ellipsis,
             )
         }
-        HorizontalDivider(color = OutlineVariant.copy(alpha = 0.1f), thickness = 0.5.dp)
+        HorizontalDivider(color = c.outlineVariant.copy(alpha = 0.1f), thickness = 0.5.dp)
     }
 }

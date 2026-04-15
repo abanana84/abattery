@@ -2,12 +2,11 @@ package com.abanana.abattery.domain.model
 
 data class BatteryInfo(
     val percent: Int,
-    /** Charging / Discharging / Full / … */
-    val statusLabel: String,
-    /** AC, USB, Wireless, or on battery. */
-    val powerInputLabel: String,
+    val chargeStatus: BatteryChargeStatus,
+    /** Empty when unplugged (on battery). */
+    val plugTypes: List<PowerPlugType>,
     val isCharging: Boolean,
-    val healthLabel: String,
+    val healthState: BatteryHealthState,
     val temperatureCelsius: Float,
     val voltageV: Float,
     /** Instant current (µA); negative when discharging on most devices. */

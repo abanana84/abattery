@@ -44,20 +44,4 @@ class BatteryViewModel @Inject constructor(
             }
         }
     }
-
-    fun refreshNow() {
-        viewModelScope.launch(Dispatchers.IO) {
-            try {
-                val info = batteryDataSource.getBatteryInfo()
-                _batteryInfo.value = info
-                val ma = info.currentMicroA?.let { it / 1000f } ?: 0f
-                historyBuffer.addLast(ma)
-                while (historyBuffer.size > 120) {
-                    historyBuffer.removeFirst()
-                }
-                _currentHistoryMa.value = historyBuffer.toList()
-            } catch (_: Exception) {
-            }
-        }
-    }
 }

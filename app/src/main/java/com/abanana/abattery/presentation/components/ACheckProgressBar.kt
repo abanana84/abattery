@@ -11,15 +11,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.abanana.abattery.ui.theme.PrimaryGreen
-import com.abanana.abattery.ui.theme.SurfaceHighest
+import com.abanana.abattery.ui.theme.AppTheme
 
 @Composable
 fun ACheckProgressBar(
     progress: Float,
     modifier: Modifier = Modifier,
-    color: Color = PrimaryGreen,
-    trackColor: Color = SurfaceHighest,
+    color: Color = AppTheme.colors.primaryGreen,
+    trackColor: Color = AppTheme.colors.surfaceHighest,
 ) {
     Box(
         modifier = modifier

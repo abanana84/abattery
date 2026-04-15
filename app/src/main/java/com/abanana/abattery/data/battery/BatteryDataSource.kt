@@ -5,7 +5,10 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.BatteryManager
 import android.os.Build
+import com.abanana.abattery.domain.model.BatteryChargeStatus
+import com.abanana.abattery.domain.model.BatteryHealthState
 import com.abanana.abattery.domain.model.BatteryInfo
+import com.abanana.abattery.domain.model.PowerPlugType
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.BufferedReader
 import java.io.File
@@ -42,7 +45,7 @@ class BatteryDataSource @Inject constructor(
             status == BatteryManager.BATTERY_STATUS_FULL
 
         val health = intent?.getIntExtra(BatteryManager.EXTRA_HEALTH, -1) ?: -1
-        val healthLabel = mapHealthLabel(health)
+        val healthState = mapHealthState(health)
 
         val tempRaw = intent?.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0) ?: 0
         val temp = tempRaw / 10f
@@ -53,8 +56,8 @@ class BatteryDataSource @Inject constructor(
         val technology = intent?.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY) ?: "Unknown"
 
         val plugged = intent?.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0) ?: 0
-        val powerInputLabel = pluggedTypeLabel(plugged)
-        val statusLabel = batteryStatusLabel(status)
+        val plugTypes = pluggedTypes(plugged)
+        val chargeStatus = batteryChargeStatus(status)
 
         // Not all SDK stubs expose these constants; keys match AOSP BatteryManager.
         val maxCurUa = intent?.run {
@@ -90,10 +93,10 @@ class BatteryDataSource @Inject constructor(
 
         BatteryInfo(
             percent = pct,
-            statusLabel = statusLabel,
-            powerInputLabel = powerInputLabel,
+            chargeStatus = chargeStatus,
+            plugTypes = plugTypes,
             isCharging = charging,
-            healthLabel = healthLabel,
+            healthState = healthState,
             temperatureCelsius = temp,
             voltageV = voltage,
             currentMicroA = currentMicroA,
@@ -108,22 +111,22 @@ class BatteryDataSource @Inject constructor(
         )
     }
 
-    private fun batteryStatusLabel(status: Int): String = when (status) {
-        BatteryManager.BATTERY_STATUS_CHARGING -> "Charging"
-        BatteryManager.BATTERY_STATUS_DISCHARGING -> "Discharging"
-        BatteryManager.BATTERY_STATUS_FULL -> "Full"
-        BatteryManager.BATTERY_STATUS_NOT_CHARGING -> "Not charging"
-        else -> "Unknown"
+    private fun batteryChargeStatus(status: Int): BatteryChargeStatus = when (status) {
+        BatteryManager.BATTERY_STATUS_CHARGING -> BatteryChargeStatus.CHARGING
+        BatteryManager.BATTERY_STATUS_DISCHARGING -> BatteryChargeStatus.DISCHARGING
+        BatteryManager.BATTERY_STATUS_FULL -> BatteryChargeStatus.FULL
+        BatteryManager.BATTERY_STATUS_NOT_CHARGING -> BatteryChargeStatus.NOT_CHARGING
+        else -> BatteryChargeStatus.UNKNOWN
     }
 
-    private fun pluggedTypeLabel(plugged: Int): String {
-        if (plugged == 0) return "Battery"
-        val parts = mutableListOf<String>()
-        if (plugged and BatteryManager.BATTERY_PLUGGED_AC != 0) parts.add("AC")
-        if (plugged and BatteryManager.BATTERY_PLUGGED_USB != 0) parts.add("USB")
-        if (plugged and BatteryManager.BATTERY_PLUGGED_DOCK != 0) parts.add("Dock")
-        if (plugged and BatteryManager.BATTERY_PLUGGED_WIRELESS != 0) parts.add("Wireless")
-        return parts.joinToString(" + ")
+    private fun pluggedTypes(plugged: Int): List<PowerPlugType> {
+        if (plugged == 0) return emptyList()
+        val parts = mutableListOf<PowerPlugType>()
+        if (plugged and BatteryManager.BATTERY_PLUGGED_AC != 0) parts.add(PowerPlugType.AC)
+        if (plugged and BatteryManager.BATTERY_PLUGGED_USB != 0) parts.add(PowerPlugType.USB)
+        if (plugged and BatteryManager.BATTERY_PLUGGED_DOCK != 0) parts.add(PowerPlugType.DOCK)
+        if (plugged and BatteryManager.BATTERY_PLUGGED_WIRELESS != 0) parts.add(PowerPlugType.WIRELESS)
+        return parts
     }
 
     private fun readCurrentMicroA(bm: BatteryManager?): Int? {
@@ -447,23 +450,23 @@ class BatteryDataSource @Inject constructor(
         }
     }
 
-    private fun mapHealthLabel(health: Int): String {
-        if (health == -1) return "Unknown"
+    private fun mapHealthState(health: Int): BatteryHealthState {
+        if (health == -1) return BatteryHealthState.UNKNOWN
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM && health == HEALTH_EXCELLENT) {
-            return "Excellent"
+            return BatteryHealthState.EXCELLENT
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && health == HEALTH_FAIR) {
-            return "Fair"
+            return BatteryHealthState.FAIR
         }
         return when (health) {
-            BatteryManager.BATTERY_HEALTH_GOOD -> "Good"
+            BatteryManager.BATTERY_HEALTH_GOOD -> BatteryHealthState.GOOD
             BatteryManager.BATTERY_HEALTH_OVERHEAT,
             BatteryManager.BATTERY_HEALTH_DEAD,
             BatteryManager.BATTERY_HEALTH_OVER_VOLTAGE,
             BatteryManager.BATTERY_HEALTH_UNSPECIFIED_FAILURE,
             BatteryManager.BATTERY_HEALTH_COLD,
-            -> "Poor"
-            else -> "Unknown"
+            -> BatteryHealthState.POOR
+            else -> BatteryHealthState.UNKNOWN
         }
     }
 

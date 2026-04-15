@@ -1,7 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Battery Health &amp; Cycle Checker</string>
+    <string name="app_name">Battery Health &amp; Cycles</string>
     <string name="app_bar_title">Battery Health</string>
-    <string name="current_flow_title">Dòng điện</string>
-    <string name="current_flow_subtitle">Theo thời gian thực (~60 mẫu)</string>
+
+    <string name="section_status">Status</string>
+    <string name="status_charging">Charging</string>
+    <string name="status_discharging">Discharging</string>
+    <string name="status_full">Full</string>
+    <string name="status_not_charging">Not charging</string>
+    <string name="status_unknown">Unknown</string>
+
+    <string name="power_on_battery">Battery</string>
+    <string name="plug_ac">AC</string>
+    <string name="plug_usb">USB</string>
+    <string name="plug_dock">Dock</string>
+    <string name="plug_wireless">Wireless</string>
+
+    <string name="health_excellent">Excellent</string>
+    <string name="health_good">Good</string>
+    <string name="health_fair">Fair</string>
+    <string name="health_poor">Poor</string>
+    <string name="health_unknown">Unknown</string>
+
+    <string name="section_temperature">Temperature</string>
+    <string name="section_voltage">Voltage</string>
+    <string name="section_power">Power</string>
+    <string name="power_formula_hint">|V × I|</string>
+
+    <string name="current_flow_title">Current</string>
+    <string name="current_flow_subtitle">Real-time (~60 samples)</string>
+
+    <string name="section_chemistry_health">Battery chemistry &amp; health</string>
+    <string name="label_technology">Technology</string>
+    <string name="label_health">Health</string>
+
+    <string name="section_charge_capability">Charge capability (reported)</string>
+    <string name="label_max_charging_current">Max charging current</string>
+    <string name="label_max_charging_voltage">Max charging voltage</string>
+
+    <string name="section_capacity_cycles">Capacity &amp; cycles</string>
+    <string name="label_design_capacity">Design capacity</string>
+    <string name="label_full_capacity">Full / estimated capacity</string>
+    <string name="label_cycle_count">Cycle Count</string>
+
+    <string name="value_na">N/A</string>
+    <string name="cycle_estimated">~%d</string>
+    <string name="unit_celsius">°C</string>
+    <string name="unit_volt">V</string>
+
+    <string name="gauge_charging">Charging</string>
+    <string name="gauge_on_battery">On battery</string>
+
+    <string name="msg_reading_battery">Reading battery information…</string>
+    <string name="msg_health_good">Your battery is functioning optimally. Use an original or certified adapter when possible.</string>
+    <string name="msg_health_fair">Battery health is fair. Reducing heat and very fast charging sessions can help longevity.</string>
+    <string name="msg_health_poor">Battery health is poor. Consider service or replacement if runtime is unacceptable.</string>
+    <string name="msg_health_status">Status: %1$s. Health: %2$s.</string>
+
+    <string name="em_dash">—</string>
+
+    <string name="cd_more_options">More options</string>
+    <string name="menu_language">Language</string>
+    <string name="menu_about">About</string>
+    <string name="language_title">Choose language</string>
+    <string name="language_follow_system">Use device language</string>
+    <string name="dialog_version">Version %1$s</string>
+    <string name="action_ok">OK</string>
+    <string name="action_close">Close</string>
+
+    <string name="cd_theme_menu">Theme</string>
+    <string name="theme_title">Appearance</string>
+    <string name="theme_system">Match device</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
 </resources>
