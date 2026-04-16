@@ -34,7 +34,13 @@ class BatteryDataSource @Inject constructor(
     }
 
     suspend fun getBatteryInfo(): BatteryInfo = withContext(Dispatchers.IO) {
-        val intent = context.registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+        val filter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
+        val intent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            context.registerReceiver(null, filter, Context.RECEIVER_NOT_EXPORTED)
+        } else {
+            @Suppress("DEPRECATION")
+            context.registerReceiver(null, filter)
+        }
 
         val level = intent?.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) ?: -1
         val scale = intent?.getIntExtra(BatteryManager.EXTRA_SCALE, -1) ?: -1

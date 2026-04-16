@@ -6,6 +6,10 @@
         android:name="android.permission.BATTERY_STATS"
         tools:ignore="ProtectedPermissions" />
 
+    <queries>
+        <package android:name="com.google.android.gms" />
+    </queries>
+
     <application
         android:name=".ABatteryApplication"
         android:allowBackup="true"

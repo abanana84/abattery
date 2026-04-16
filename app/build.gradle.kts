@@ -14,15 +14,15 @@ android {
         applicationId = "com.abanana.abattery"
         minSdk = 26
         targetSdk = 35
-        versionCode = 3
-        versionName = "1.1.1"
+        versionCode = 6
+        versionName = "1.1.4"
     }
 
     buildTypes {
         release {
             isMinifyEnabled = true
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
+                getDefaultProguardFile("proguard-android.txt"),
                 "proguard-rules.pro",
             )
         }
@@ -53,6 +53,5 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.kotlinx.coroutines.android)
-    implementation("androidx.compose.ui:ui-text-google-fonts:1.6.8")
     debugImplementation(libs.androidx.compose.ui.tooling)
 }
