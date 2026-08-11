@@ -10,3 +10,13 @@ captures/
 *.aab
 *.ap_
 *.dex
+*.jks
+*.keystore
+*.pem
+*.p12
+*.key
+keystore.properties
+secrets.properties
+google-services.json
+.env
+.env.*

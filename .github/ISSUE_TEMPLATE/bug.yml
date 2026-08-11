@@ -1,0 +1,89 @@
+name: Bug report
+description: Report a reproducible problem or device compatibility issue.
+title: "[Bug]: "
+labels: [bug, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve ABattery. Do not include serial numbers, account details, or other sensitive information.
+
+  - type: input
+    id: app-version
+    attributes:
+      label: App version
+      placeholder: "1.1.4"
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: Manufacturer and model only.
+      placeholder: "Google Pixel 8"
+    validations:
+      required: true
+
+  - type: input
+    id: android-version
+    attributes:
+      label: Android version
+      placeholder: "Android 15"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: power-state
+    attributes:
+      label: Power state
+      options:
+        - Charging by USB
+        - Charging wirelessly
+        - Charging by another source
+        - Running on battery
+        - Not relevant
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Explain the observed behavior and which battery field is affected.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the app
+        2. Connect a charger
+        3. Scroll to ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or logs
+      description: Optional. Remove unrelated personal information before uploading.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues for the same problem.
+          required: true
+        - label: I removed sensitive device and account information.
+          required: true
