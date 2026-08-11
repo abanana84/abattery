@@ -3,7 +3,7 @@ package com.abanana.abattery.presentation.locale
 import java.util.Locale
 
 /**
- * BCP-47 tags matching `values-*` resource folders (Indonesian resources use `values-in`).
+ * BCP-47 tags matching `values-*` resource folders (Indonesian resources use `values-id`).
  */
 object SupportedAppLocales {
     val tagsInOrder: List<String> = listOf(
