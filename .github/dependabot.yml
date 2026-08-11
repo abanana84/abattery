@@ -33,6 +33,9 @@ updates:
           - minor
           - patch
     ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
       - dependency-name: "com.google.dagger*"
         versions:
           - ">= 2.60.0"
