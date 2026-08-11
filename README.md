@@ -58,7 +58,7 @@ If a field behaves differently on your device, please open a [compatibility repo
 
 ### Requirements
 
-- Android Studio with Android SDK 35
+- Android Studio with Android SDK 36
 - JDK 17
 - Android 8.0 (API 26) or newer for the target device
 
