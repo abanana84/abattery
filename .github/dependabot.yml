@@ -6,10 +6,36 @@ updates:
       interval: monthly
     open-pull-requests-limit: 5
     groups:
-      android-dependencies:
+      androidx:
+        patterns:
+          - "androidx.*"
         update-types:
           - minor
           - patch
+      kotlin-toolchain:
+        patterns:
+          - "org.jetbrains.kotlin*"
+          - "com.google.devtools.ksp"
+        update-types:
+          - minor
+          - patch
+      hilt:
+        patterns:
+          - "com.google.dagger*"
+          - "androidx.hilt*"
+        update-types:
+          - minor
+          - patch
+      kotlin-libraries:
+        patterns:
+          - "org.jetbrains.kotlinx*"
+        update-types:
+          - minor
+          - patch
+    ignore:
+      - dependency-name: "com.google.dagger*"
+        versions:
+          - ">= 2.60.0"
 
   - package-ecosystem: github-actions
     directory: /
