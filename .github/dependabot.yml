@@ -33,8 +33,8 @@ updates:
           - "version-update:semver-major"
       - dependency-name: "com.google.dagger*"
         versions:
-          # Hilt 2.59 requires AGP 9; keep updates compatible with AGP 8.x.
-          - ">= 2.59.0"
+          # Hilt 2.58+ requires a coordinated Kotlin/KSP migration.
+          - ">= 2.58.0"
       - dependency-name: "androidx.hilt:*"
         versions:
           # AndroidX Hilt 1.4 requires API 37 and AGP 9.1.
