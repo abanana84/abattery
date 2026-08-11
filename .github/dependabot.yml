@@ -39,6 +39,16 @@ updates:
       - dependency-name: "com.google.dagger*"
         versions:
           - ">= 2.60.0"
+      # Newer AndroidX lines require a coordinated compile SDK and AGP migration.
+      - dependency-name: "androidx.core:*"
+        versions:
+          - ">= 1.16.0"
+      - dependency-name: "androidx.lifecycle:*"
+        versions:
+          - ">= 2.9.0"
+      - dependency-name: "androidx.activity:*"
+        versions:
+          - ">= 1.10.0"
 
   - package-ecosystem: github-actions
     directory: /
