@@ -15,6 +15,7 @@ updates:
       kotlin-toolchain:
         patterns:
           - "org.jetbrains.kotlin*"
+          - "org.jetbrains.kotlinx*"
           - "com.google.devtools.ksp"
         update-types:
           - minor
@@ -26,19 +27,14 @@ updates:
         update-types:
           - minor
           - patch
-      kotlin-libraries:
-        patterns:
-          - "org.jetbrains.kotlinx*"
-        update-types:
-          - minor
-          - patch
     ignore:
       - dependency-name: "*"
         update-types:
           - "version-update:semver-major"
       - dependency-name: "com.google.dagger*"
         versions:
-          - ">= 2.60.0"
+          # Hilt 2.59 requires AGP 9; keep updates compatible with AGP 8.x.
+          - ">= 2.59.0"
       # Newer AndroidX lines require a coordinated compile SDK and AGP migration.
       - dependency-name: "androidx.core:*"
         versions:
