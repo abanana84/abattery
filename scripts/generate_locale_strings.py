@@ -253,7 +253,7 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "theme_light": "Clair",
         "theme_dark": "Sombre",
     },
-    "in": {
+    "id": {
         "app_name": "Kesehatan Baterai & Siklus",
         "app_bar_title": "Kesehatan baterai",
         "section_status": "Status",
@@ -991,7 +991,7 @@ FOLDER_MAP = {
     "de": "values-de",
     "es": "values-es",
     "fr": "values-fr",
-    "in": "values-in",
+    "id": "values-id",
     "it": "values-it",
     "ja": "values-ja",
     "ko": "values-ko",
