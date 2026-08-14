@@ -22,6 +22,8 @@
   <a href="https://github.com/abanana84/abattery/issues/new?template=bug.yml">Report a bug</a>
   &nbsp;&middot;&nbsp;
   <a href="https://github.com/abanana84/abattery/issues/new?template=feature.yml">Request a feature</a>
+  &nbsp;&middot;&nbsp;
+  <a href="docs/android-battery-data.md">How Android battery data works</a>
 </p>
 
 ## Why ABattery?
