@@ -1,0 +1,81 @@
+name: Device compatibility report
+description: Share which battery fields are available on an Android device.
+title: "[Device]: "
+labels: [compatibility, testing]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping document Android battery compatibility. Do not include serial numbers, account details, or other sensitive information.
+
+  - type: input
+    id: app-version
+    attributes:
+      label: App version
+      placeholder: "1.1.5"
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: Manufacturer and model only.
+      placeholder: "Google Pixel 7"
+    validations:
+      required: true
+
+  - type: input
+    id: android-version
+    attributes:
+      label: Android version or custom ROM
+      placeholder: "Android 17 or GrapheneOS 2026081200"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install-source
+    attributes:
+      label: Install source
+      options:
+        - Google Play
+        - GitHub release APK
+        - Built from source
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: available-fields
+    attributes:
+      label: Available battery fields
+      description: Select every field that displays a plausible value on the device.
+      options:
+        - label: Battery level, status, temperature, and voltage
+        - label: Live current and charging power
+        - label: Cycle count
+        - label: Design capacity
+        - label: Full-charge capacity
+        - label: Health status
+
+  - type: textarea
+    id: unavailable-fields
+    attributes:
+      label: Missing or unusual fields
+      description: List fields showing N/A, estimates, or values that appear incorrect.
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Include charging state or reproduction details when relevant.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I removed serial numbers, account details, and other sensitive information.
+          required: true
+        - label: I understand that Android may not expose every battery field on every device.
+          required: true

@@ -12,6 +12,7 @@
   <a href="https://github.com/abanana84/abattery/actions/workflows/android.yml"><img alt="Android CI" src="https://github.com/abanana84/abattery/actions/workflows/android.yml/badge.svg" /></a>
   <a href="https://play.google.com/store/apps/details?id=com.abanana.abattery"><img alt="Google Play" src="https://img.shields.io/badge/Google_Play-Download-414141?logo=googleplay&logoColor=white" /></a>
   <a href="https://github.com/abanana84/abattery/releases"><img alt="Latest release" src="https://img.shields.io/github/v/release/abanana84/abattery" /></a>
+  <a href="https://github.com/abanana84/abattery/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/abanana84/abattery?logo=github&label=Stars" /></a>
   <a href="LICENSE"><img alt="Apache 2.0 license" src="https://img.shields.io/github/license/abanana84/abattery" /></a>
   <img alt="Android 8.0+" src="https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white" />
 </p>
@@ -24,6 +25,10 @@
   <a href="https://github.com/abanana84/abattery/issues/new?template=feature.yml">Request a feature</a>
   &nbsp;&middot;&nbsp;
   <a href="docs/android-battery-data.md">How Android battery data works</a>
+</p>
+
+<p align="center">
+  <strong>If ABattery is useful on your device, <a href="https://github.com/abanana84/abattery">star the repository</a> to help more Android users discover it.</strong>
 </p>
 
 ## Why ABattery?
@@ -54,7 +59,9 @@ Battery reporting varies significantly between Android versions and manufacturer
 
 Some devices hide capacity, cycle count, or charging limits. In those cases ABattery shows `N/A` instead of inventing a value. The app is a diagnostic tool, not a laboratory measurement or a replacement for manufacturer service tools.
 
-If a field behaves differently on your device, please open a [compatibility report](https://github.com/abanana84/abattery/issues/new?template=bug.yml) with the phone model and Android version.
+Community reports currently confirm the app running on devices including the Google Pixel 7 with Android 17, Google Pixel 6a with GrapheneOS, and LG V40 with Android 10. See the [community-tested device list](docs/device-compatibility.md) for details.
+
+If a field behaves differently on your device, please open a [device compatibility report](https://github.com/abanana84/abattery/issues/new?template=device-compatibility.yml) with the phone model and Android version.
 
 ## Build from source
 
