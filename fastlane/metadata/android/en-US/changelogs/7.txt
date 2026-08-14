@@ -1,0 +1,1 @@
+Updated the app for Android 16 (API 36), refreshed the Android build toolchain, and fixed the Indonesian locale resource qualifier.

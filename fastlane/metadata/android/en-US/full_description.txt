@@ -1,0 +1,18 @@
+ABattery helps you understand the battery information exposed by your Android device.
+
+View battery level, charge status, temperature, voltage, live current, charging power, battery technology, design capacity, full-charge capacity, health status, and cycle count in one Material 3 dashboard.
+
+Battery reporting varies between Android versions and manufacturers. ABattery prefers public Android APIs, uses narrow local fallbacks when available, and clearly marks estimated cycle values. When the device does not expose enough information, the app shows N/A instead of inventing a measurement.
+
+Features:
+* Live charging and discharging current chart
+* Reported or best-effort battery cycle count
+* Design and full-charge capacity when exposed by the device
+* Light, dark, and system themes
+* 16 languages
+* No root required
+* No ads or analytics
+* No account or Internet permission
+* No runtime permission prompts
+
+ABattery is free and open-source software licensed under Apache-2.0.
