@@ -11,7 +11,7 @@ Thank you for helping improve ABattery. Contributions can be code, device compat
 
 ## Development setup
 
-You need JDK 17, Android SDK 35, and an Android Studio version compatible with the Gradle files in this repository.
+You need JDK 17, Android SDK 36, and an Android Studio version compatible with the Gradle files in this repository.
 
 ```bash
 git clone https://github.com/abanana84/abattery.git

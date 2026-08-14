@@ -2,10 +2,11 @@
 
 All notable changes to ABattery are documented here.
 
-## [1.1.5] - Unreleased
+## [1.1.5] - 2026-08-14
 
 - Updated the app to target Android 16 (API 36) for Google Play compliance.
 - Updated the Android build toolchain while keeping Android 8.0 device support.
+- Fixed the Indonesian locale resource qualifier.
 
 ## [1.1.4] - 2026-04-16
 
